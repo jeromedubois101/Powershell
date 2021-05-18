@@ -18,9 +18,9 @@ foreach($user in $users){
     $lp = Get-Credential -Message "Entrer vos informations d'identification" -UserName $user.username
     $password = $lp.password
     if($user.ChangePWlogon -eq "true"){
-        New-ADUser -Name $fullname -GivenName $user.firstname -Surname $user.lastname -SamAccountName $user.username -Department $user.departement -AccountPassword $password -Path $user.ou -Enabled 1
+        New-ADUser -Name $fullname -GivenName $user.firstname -Surname $user.lastname -SamAccountName $user.username -Department $user.departement -AccountPassword $password -Path $user.ou -Enabled 1 -ChangePasswordAtLogon 1
     }
     else {
-        New-ADUser -Name $fullname -GivenName $user.firstname -Surname $user.lastname -SamAccountName $user.username -Department $user.departement -AccountPassword $password -Path $user.ou -Enabled 1 -ChangePasswordAtLogon 1
+        New-ADUser -Name $fullname -GivenName $user.firstname -Surname $user.lastname -SamAccountName $user.username -Department $user.departement -AccountPassword $password -Path $user.ou -Enabled 1 
     }
 }
