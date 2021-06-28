@@ -4,7 +4,7 @@ function Set-Regkey ($name, $value){
 
 #-FilePath non obligatoire
 function Write-Log($message, $logfile){
-    $Date = Get-Date -Format yyyymmdd-hh:mm:ss
+    $Date = Get-Date -Format yyyyMMdd-hh:mm:ss
     $Message_total = $Date + " > " + $message
     $Message_total | Out-File -FilePath $logfile -Append
 }
